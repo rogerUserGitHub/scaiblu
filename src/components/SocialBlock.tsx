@@ -1,6 +1,7 @@
 import { siteConfig } from '../config/siteConfig';
 import SectionWrapper from './SectionWrapper';
 import HoverOverlay from './HoverOverlay';
+import socialImg from '../assets/love-hands.png';
 
 // Instagram icon
 function InstagramIcon() {
@@ -33,7 +34,6 @@ interface SocialBlockProps {
 
 export default function SocialBlock({ standalone = false }: SocialBlockProps) {
   const { social } = siteConfig;
-  const image = social.carousel[0];
 
   const content = (
     <div id="social" className="relative w-full h-screen md:h-full">
@@ -51,8 +51,8 @@ export default function SocialBlock({ standalone = false }: SocialBlockProps) {
         overlayColor="bg-black/40"
       >
         <img
-          src={image.image}
-          alt={image.alt}
+          src={socialImg}
+          alt="scaiblu social media"
           loading="lazy"
           decoding="async"
           className="w-full h-full object-cover"

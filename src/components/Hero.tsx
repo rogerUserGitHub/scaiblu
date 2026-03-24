@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { siteConfig } from '../config/siteConfig';
 import GradientText from './GradientText';
-import hero1 from '../assets/hero1.png';
+import hero3 from '../assets/hero3.png';
 
 export default function Hero() {
   const { hero } = siteConfig;
@@ -14,11 +14,11 @@ export default function Hero() {
     >
       {/* Background image */}
       <img
-        src={hero1}
+        src={hero3}
         alt="scaiblu hero background"
         fetchPriority="high"
         decoding="async"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover object-[30%_center]"
       />
 
       {/* Overlay */}

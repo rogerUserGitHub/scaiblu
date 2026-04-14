@@ -7,7 +7,8 @@
       "Bash(curl -s \"https://reactbits.dev/text-animations/gradient-text\")",
       "WebSearch",
       "Bash(curl -s \"https://api.github.com/repos/DavidHDev/react-bits/contents/components\")",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(sips -g pixelWidth -g pixelHeight src/assets/hero3.png)"
     ]
   }
 }

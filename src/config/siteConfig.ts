@@ -6,6 +6,7 @@ export const siteConfig = {
 
   links: {
     instagram: 'https://www.instagram.com',
+    youtube: 'https://www.youtube.com',
     soundcloud: 'https://soundcloud.com',
   },
 
@@ -63,4 +64,5 @@ export const siteConfig = {
     privacyUrl: '/privacy',
     confidentialityUrl: '/confidentiality',
   },
+
 } as const;

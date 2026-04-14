@@ -2,8 +2,8 @@ import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { siteConfig } from '../config/siteConfig';
 import SectionWrapper from './SectionWrapper';
-import crateImg from '../assets/crate.png';
-import turntableGif from '../assets/turntable.gif';
+import crateImg from '../assets/casette.png';
+import turntableGif from '../assets/stereo.gif';
 
 function ContactIcon() {
   return (
@@ -118,7 +118,7 @@ export default function ContactBlock({ standalone = false }: ContactBlockProps) 
           className="absolute inset-0 w-full h-full object-cover"
         />
         {/* Overlay to keep form readable */}
-        <div className="absolute inset-0 bg-[#ddc4ee]/80" />
+        <div className="absolute inset-0 bg-[#f7ca53]/70" />
 
         {/* Close button */}
         <button

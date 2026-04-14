@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
 import CookieBanner from './components/CookieBanner';
 import Home from './pages/Home';
 import SocialPage from './pages/SocialPage';
 import MusicPage from './pages/MusicPage';
-import ContactPage from './pages/ContactPage';
+import PrivacyPage from './pages/PrivacyPage';
+import ConfidentialityPage from './pages/ConfidentialityPage';
 import NotFound from './pages/NotFound';
 
 export default function App() {
@@ -13,16 +13,12 @@ export default function App() {
       <Routes>
         <Route
           path="/"
-          element={
-            <>
-              <Navbar />
-              <Home />
-            </>
-          }
+          element={<Home />}
         />
         <Route path="/social" element={<SocialPage />} />
         <Route path="/music" element={<MusicPage />} />
-        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/confidentiality" element={<ConfidentialityPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 

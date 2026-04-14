@@ -4,6 +4,11 @@ export default function Footer() {
   const { footer } = siteConfig;
   const year = new Date().getFullYear();
 
+  const reopenCookieBanner = () => {
+    localStorage.removeItem('scaiblu_cookie_consent_v2');
+    window.location.reload();
+  };
+
   return (
     <footer className="bg-[#fafafa] border-t border-black/8 py-4 px-6">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
@@ -19,7 +24,7 @@ export default function Footer() {
           {siteConfig.name}
         </a>
 
-        <nav aria-label="Footer navigation" className="flex gap-4">
+        <nav aria-label="Footer navigation" className="flex gap-4 items-center">
           <a
             href={footer.privacyUrl}
             className="text-[10px] font-bold text-[#cede2c] tracking-wider uppercase hover:opacity-70 transition-opacity duration-200"
@@ -33,6 +38,13 @@ export default function Footer() {
           >
             Confidentiality
           </a>
+          <span className="text-[#cede2c] font-bold text-[10px]">·</span>
+          <button
+            onClick={reopenCookieBanner}
+            className="text-[10px] font-bold text-[#cede2c] tracking-wider uppercase hover:opacity-70 transition-opacity duration-200"
+          >
+            Cookies
+          </button>
         </nav>
       </div>
     </footer>

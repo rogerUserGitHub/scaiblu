@@ -1,30 +1,28 @@
+import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import SocialBlock from '../components/SocialBlock';
 import MusicBlock from '../components/MusicBlock';
-import ContactBlock from '../components/ContactBlock';
+import AboutBlock from '../components/AboutBlock';
+import AudioPlayer from '../components/AudioPlayer';
 import Footer from '../components/Footer';
 
 export default function Home() {
   return (
     <>
+      <Navbar />
       <Hero />
 
       <div className="h-px bg-black/8" />
 
       <main>
-        {/* Side-by-side on desktop, stacked on mobile */}
         <div className="flex flex-col md:flex-row md:h-screen">
-          <div className="flex-1 md:h-full">
-            <SocialBlock />
-          </div>
-          <div className="flex-1 md:h-full">
-            <MusicBlock />
-          </div>
-          <div className="flex-1 md:h-full">
-            <ContactBlock />
-          </div>
+          <div className="flex-1 md:h-full"><SocialBlock /></div>
+          <div className="flex-1 md:h-full"><MusicBlock /></div>
+          <div className="flex-1 md:h-full"><AboutBlock /></div>
         </div>
       </main>
+
+      <AudioPlayer />
 
       <Footer />
     </>

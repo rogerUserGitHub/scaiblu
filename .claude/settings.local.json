@@ -29,7 +29,15 @@
       "Bash(cwebp -q 82 hero3.png -o hero3.webp)",
       "Bash(cwebp -q 78 about.png -o about.webp)",
       "Bash(cwebp -q 78 polaroid.png -o polaroid.webp)",
-      "Bash(cwebp -q 90 about.png -o about.webp)"
+      "Bash(cwebp -q 90 about.png -o about.webp)",
+      "Bash(curl -s \"https://www.scaiblu.com\")",
+      "Bash(curl -sL --max-time 10 \"https://www.scaiblu.com\")",
+      "Bash(curl -v --max-time 10 \"https://www.scaiblu.com\")",
+      "Bash(dig www.scaiblu.com A +short)",
+      "Bash(dig www.scaiblu.com CNAME +short)",
+      "Bash(dig scaiblu.com NS +short)",
+      "Bash(dig scaiblu.com A +short)",
+      "Bash(dig scaiblu.com CNAME +short)"
     ]
   }
 }

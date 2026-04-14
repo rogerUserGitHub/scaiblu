@@ -3,7 +3,7 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { siteConfig } from '../config/siteConfig';
 import SectionWrapper from './SectionWrapper';
 import crateImg from '../assets/casette.png';
-import turntableGif from '../assets/stereo.gif';
+import turntableWebm from '../assets/stereo.webm';
 
 function ContactIcon() {
   return (
@@ -111,10 +111,13 @@ export default function ContactBlock({ standalone = false }: ContactBlockProps) 
         style={{ pointerEvents: isOpen ? 'auto' : 'none' }}
       >
         {/* GIF background */}
-        <img
-          src={turntableGif}
-          alt=""
+        <video
+          src={turntableWebm}
           aria-hidden="true"
+          autoPlay
+          muted
+          loop
+          playsInline
           className="absolute inset-0 w-full h-full object-cover"
         />
         {/* Overlay to keep form readable */}

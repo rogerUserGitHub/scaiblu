@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import WaveSurfer from 'wavesurfer.js';
 import { motion, AnimatePresence } from 'framer-motion';
-import bgGif from '../assets/turntable.gif';
+import bgWebm from '../assets/turntable.webm';
 import logoImg from '../assets/logo.png';
 import { trackEvent } from '../analytics';
 
@@ -142,8 +142,8 @@ export default function AudioPlayer() {
 
       {/* ── Backgrounds ── */}
       <div className="md:hidden absolute inset-0 bg-[#0a0a0a]" />
-      <img
-        src={bgGif} alt="" aria-hidden="true"
+      <video
+        src={bgWebm} aria-hidden="true" autoPlay muted loop playsInline
         className="hidden md:block absolute inset-0 w-full h-full object-cover"
         style={{ filter: 'grayscale(100%) brightness(0.45)' }}
       />

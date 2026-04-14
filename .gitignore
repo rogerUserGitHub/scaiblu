@@ -47,12 +47,15 @@ Thumbs.db
 # Large binary assets — replaced by WebM equivalents or unused
 # GIFs: converted to WebM (97% smaller). Keep local copies but exclude from git.
 src/assets/*.gif
-# Unused originals
+# Unused originals / replaced by optimised formats
 src/assets/hero.png
 src/assets/hero1.png
 src/assets/hero2.png
+src/assets/hero3.png
 src/assets/love-hands.png
 src/assets/crate.png
 src/assets/stereo.png
+src/assets/about.png
+src/assets/polaroid.png
 src/assets/vite.svg
 src/assets/react.svg

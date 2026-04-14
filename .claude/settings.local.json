@@ -19,7 +19,16 @@
       "Bash(du -sh /Users/rogerdirkx/Documents/github/scaiblu/src/assets/*.webm)",
       "Bash(ffmpeg -y -i clouds.gif -c:v libvpx-vp9 -b:v 0 -crf 33 -vf 'scale=trunc\\(iw/2\\)*2:trunc\\(ih/2\\)*2' -loop 0 -an -row-mt 1 clouds.webm)",
       "Bash(npx tsc:*)",
-      "Bash(awk '{sum += $1} END {print sum \"K total\"}')"
+      "Bash(awk '{sum += $1} END {print sum \"K total\"}')",
+      "Bash(npx vite:*)",
+      "Bash(sort -t'│' -k2 -rh)",
+      "Bash(ffmpeg -y -i hero3.png -c:v libwebp -quality 82 hero3.webp)",
+      "Bash(ffmpeg -y -i about.png -c:v libwebp -quality 78 about.webp)",
+      "Bash(ffmpeg -y -i polaroid.png -c:v libwebp -quality 78 polaroid.webp)",
+      "Bash(ffmpeg -y -i hero3.png -quality 82 hero3.webp)",
+      "Bash(cwebp -q 82 hero3.png -o hero3.webp)",
+      "Bash(cwebp -q 78 about.png -o about.webp)",
+      "Bash(cwebp -q 78 polaroid.png -o polaroid.webp)"
     ]
   }
 }

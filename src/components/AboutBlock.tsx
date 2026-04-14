@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import SectionWrapper from './SectionWrapper';
-import aboutImg from '../assets/about.png';
+import aboutImg from '../assets/about.webp';
 
 const ABOUT_PARAGRAPHS = [
   "Hola, me llamo Scaiblu. I escaped my creator's daydreams during a mild mid‑life crisis and decided to DJ about it. My name is a faded echo of hers, filtered through years of expatriation and an identity that's proudly from everywhere and nowhere.",
@@ -31,6 +31,8 @@ export default function AboutBlock({ standalone = false }: AboutBlockProps) {
         src={aboutImg}
         alt=""
         aria-hidden="true"
+        loading="lazy"
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover"
       />
 

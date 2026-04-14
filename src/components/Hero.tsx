@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { siteConfig } from '../config/siteConfig';
 import GradientText from './GradientText';
 import { VideoText } from './VideoText';
-import hero3 from '../assets/hero3.png';
+import hero3 from '../assets/hero3.webp';
 import turntableWebm from '../assets/turntable.webm';
 import stereoWebm from '../assets/stereo.webm';
 import cloudsWebm from '../assets/clouds.webm';

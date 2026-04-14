@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { siteConfig } from '../config/siteConfig';
 import SectionWrapper from './SectionWrapper';
-import polaroidImg from '../assets/polaroid.png';
+import polaroidImg from '../assets/polaroid.webp';
 import { trackEvent } from '../analytics';
 
 function InstagramIcon() {
@@ -79,6 +79,8 @@ export default function SocialBlock({ standalone = false }: SocialBlockProps) {
         src={polaroidImg}
         alt=""
         aria-hidden="true"
+        loading="lazy"
+        decoding="async"
         className="absolute inset-0 w-full h-full object-cover"
         animate={{ scale: hovered ? 1.04 : 1 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}

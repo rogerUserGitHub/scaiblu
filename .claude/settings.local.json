@@ -28,7 +28,8 @@
       "Bash(ffmpeg -y -i hero3.png -quality 82 hero3.webp)",
       "Bash(cwebp -q 82 hero3.png -o hero3.webp)",
       "Bash(cwebp -q 78 about.png -o about.webp)",
-      "Bash(cwebp -q 78 polaroid.png -o polaroid.webp)"
+      "Bash(cwebp -q 78 polaroid.png -o polaroid.webp)",
+      "Bash(cwebp -q 90 about.png -o about.webp)"
     ]
   }
 }

@@ -2,7 +2,7 @@
 // GA is loaded ONLY after the user grants analytics consent.
 // Replace GA_MEASUREMENT_ID with your real G-XXXXXXXXXX ID.
 
-export const GA_ID = 'G-XXXXXXXXXX';
+export const GA_ID = 'G-L348KF72TD';
 
 declare global {
   interface Window {

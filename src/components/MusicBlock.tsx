@@ -1,8 +1,8 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { siteConfig } from '../config/siteConfig';
 import SectionWrapper from './SectionWrapper';
 import HoverOverlay from './HoverOverlay';
-import cloudsGif from '../assets/clouds6.gif';
+import cloudsWebm from '../assets/clouds6.webm';
 
 // SoundCloud icon
 function SoundCloudIcon() {
@@ -29,27 +29,22 @@ interface MusicBlockProps {
 
 export default function MusicBlock({ standalone = false }: MusicBlockProps) {
   const { music } = siteConfig;
-  const hiddenImgRef = useRef<HTMLImageElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [hovered, setHovered] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-  const captureFirstFrame = () => {
-    const img = hiddenImgRef.current;
-    const canvas = canvasRef.current;
-    if (!img || !canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    canvas.width = img.naturalWidth;
-    canvas.height = img.naturalHeight;
-    ctx.drawImage(img, 0, 0);
+  const handleMouseEnter = () => videoRef.current?.play();
+  const handleMouseLeave = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.pause();
+    v.currentTime = 0;
   };
 
   const content = (
     <div
       id="music"
       className="relative w-full h-screen md:h-full bg-[#cede2c]"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {/* Section title */}
       <div className="absolute top-8 left-6 md:left-8 z-20">
@@ -58,31 +53,17 @@ export default function MusicBlock({ standalone = false }: MusicBlockProps) {
         </span>
       </div>
 
-      {/* Hidden img — loads once to capture first frame into canvas */}
-      <img
-        ref={hiddenImgRef}
-        src={cloudsGif}
-        alt=""
+      {/* WebM video — paused on idle, plays on hover */}
+      <video
+        ref={videoRef}
+        src={cloudsWebm}
         aria-hidden="true"
-        onLoad={captureFirstFrame}
-        className="absolute w-0 h-0 invisible pointer-events-none"
-      />
-      {/* Canvas shows first frame when not hovered */}
-      <canvas
-        ref={canvasRef}
-        aria-hidden="true"
+        muted
+        playsInline
+        loop
+        preload="metadata"
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ display: hovered ? 'none' : 'block' }}
       />
-      {/* GIF mounts fresh on hover — always plays from frame 1 */}
-      {hovered && (
-        <img
-          src={cloudsGif}
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-      )}
 
       {/* SoundCloud hover overlay on top */}
       <div className="absolute inset-0 z-10">

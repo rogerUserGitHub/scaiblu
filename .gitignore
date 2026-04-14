@@ -1,5 +1,15 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build output
+dist/
+dist-ssr/
+build/
+
 # Logs
-logs
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -7,18 +17,42 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 *.local
 
-# Editor directories and files
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# Editor
 .vscode/*
 !.vscode/extensions.json
-.idea
-.DS_Store
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Large binary assets — replaced by WebM equivalents or unused
+# GIFs: converted to WebM (97% smaller). Keep local copies but exclude from git.
+src/assets/*.gif
+# Unused originals
+src/assets/hero.png
+src/assets/hero1.png
+src/assets/hero2.png
+src/assets/love-hands.png
+src/assets/crate.png
+src/assets/stereo.png
+src/assets/vite.svg
+src/assets/react.svg

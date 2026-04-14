@@ -4,15 +4,15 @@ import { siteConfig } from '../config/siteConfig';
 import GradientText from './GradientText';
 import { VideoText } from './VideoText';
 import hero3 from '../assets/hero3.png';
-import turntableGif from '../assets/turntable.gif';
-import stereoGif from '../assets/stereo.gif';
-import cloudsGif from '../assets/clouds.gif';
-import clouds2Gif from '../assets/clouds2.gif';
-import clouds3Gif from '../assets/clouds3.gif';
-import clouds4Gif from '../assets/clouds4.gif';
-import clouds5Gif from '../assets/clouds5.gif';
+import turntableWebm from '../assets/turntable.webm';
+import stereoWebm from '../assets/stereo.webm';
+import cloudsWebm from '../assets/clouds.webm';
+import clouds2Webm from '../assets/clouds2.webm';
+import clouds3Webm from '../assets/clouds3.webm';
+import clouds4Webm from '../assets/clouds4.webm';
+import clouds5Webm from '../assets/clouds5.webm';
 
-const GIFS = [turntableGif, stereoGif, cloudsGif, clouds2Gif, clouds3Gif, clouds4Gif, clouds5Gif];
+const GIFS = [turntableWebm, stereoWebm, cloudsWebm, clouds2Webm, clouds3Webm, clouds4Webm, clouds5Webm];
 
 const TITLE_W = 720;
 const TITLE_H = 170;

@@ -8,7 +8,18 @@
       "WebSearch",
       "Bash(curl -s \"https://api.github.com/repos/DavidHDev/react-bits/contents/components\")",
       "WebFetch(domain:github.com)",
-      "Bash(sips -g pixelWidth -g pixelHeight src/assets/hero3.png)"
+      "Bash(sips -g pixelWidth -g pixelHeight src/assets/hero3.png)",
+      "Bash(du -sh * public/ src/assets/)",
+      "Bash(du -sh src/assets/* public/*)",
+      "Bash(git lfs:*)",
+      "Bash(git rm:*)",
+      "Bash(du -sh src/assets/clouds*.gif src/assets/turntable.gif src/assets/stereo.gif)",
+      "Bash(ffmpeg -version)",
+      "Bash(brew install:*)",
+      "Bash(du -sh /Users/rogerdirkx/Documents/github/scaiblu/src/assets/*.webm)",
+      "Bash(ffmpeg -y -i clouds.gif -c:v libvpx-vp9 -b:v 0 -crf 33 -vf 'scale=trunc\\(iw/2\\)*2:trunc\\(ih/2\\)*2' -loop 0 -an -row-mt 1 clouds.webm)",
+      "Bash(npx tsc:*)",
+      "Bash(awk '{sum += $1} END {print sum \"K total\"}')"
     ]
   }
 }

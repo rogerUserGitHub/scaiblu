@@ -1,6 +1,24 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- GA4 Consent Mode v2 — must be first, before gtag.js loads -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        wait_for_update: 500,
+      });
+    </script>
+
+    <!-- Google tag (gtag.js) — immediately after <head> as required -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L348KF72TD"></script>
+    <script>
+      gtag('js', new Date());
+      gtag('config', 'G-L348KF72TD');
+    </script>
+
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/logo.png" />
     <link rel="apple-touch-icon" href="/logo.png" />
@@ -64,24 +82,6 @@
         "contactType": "Booking"
       }
     }
-    </script>
-
-    <!-- GA4 Consent Mode v2 — must be set BEFORE gtag.js loads -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { window.dataLayer.push(arguments); }
-      gtag('consent', 'default', {
-        analytics_storage: 'denied',
-        ad_storage: 'denied',
-        wait_for_update: 500,
-      });
-    </script>
-
-    <!-- Google tag (gtag.js) — present for detection; blocked by consent until user accepts -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L348KF72TD"></script>
-    <script>
-      gtag('js', new Date());
-      gtag('config', 'G-L348KF72TD');
     </script>
   </head>
   <body>

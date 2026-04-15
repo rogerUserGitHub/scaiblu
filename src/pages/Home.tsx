@@ -1,12 +1,9 @@
-import { lazy, Suspense } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import SocialBlock from '../components/SocialBlock';
 import MusicBlock from '../components/MusicBlock';
 import AboutBlock from '../components/AboutBlock';
 import Footer from '../components/Footer';
-
-const AudioPlayer = lazy(() => import('../components/AudioPlayer'));
 
 export default function Home() {
   return (

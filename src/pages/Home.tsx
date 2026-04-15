@@ -24,10 +24,6 @@ export default function Home() {
         </div>
       </main>
 
-      <Suspense fallback={<div className="w-full h-[50vh] bg-[#0a0a0a]" />}>
-        <AudioPlayer />
-      </Suspense>
-
       <Footer />
     </>
   );

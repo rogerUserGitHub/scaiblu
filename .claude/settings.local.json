@@ -37,7 +37,8 @@
       "Bash(dig www.scaiblu.com CNAME +short)",
       "Bash(dig scaiblu.com NS +short)",
       "Bash(dig scaiblu.com A +short)",
-      "Bash(dig scaiblu.com CNAME +short)"
+      "Bash(dig scaiblu.com CNAME +short)",
+      "Bash(curl:*)"
     ]
   }
 }

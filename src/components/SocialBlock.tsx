@@ -86,7 +86,29 @@ export default function SocialBlock({ standalone = false }: SocialBlockProps) {
         transition={{ duration: 0.5, ease: 'easeOut' }}
       />
 
-      {/* Hover overlay with two icon links */}
+      {/* Mobile: icons always visible */}
+      <div className="md:hidden absolute inset-0 z-10 bg-[#ddc4ee]/50 flex items-center justify-center gap-12">
+        <a
+          href={siteConfig.links.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit scaiblu on Instagram"
+          onClick={() => trackEvent('social_click', { platform: 'instagram' })}
+        >
+          <InstagramIcon />
+        </a>
+        <a
+          href={siteConfig.links.youtube}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Visit scaiblu on YouTube"
+          onClick={() => trackEvent('social_click', { platform: 'youtube' })}
+        >
+          <YoutubeIcon />
+        </a>
+      </div>
+
+      {/* Desktop: hover overlay */}
       <AnimatePresence>
         {hovered && (
           <motion.div
@@ -95,7 +117,7 @@ export default function SocialBlock({ standalone = false }: SocialBlockProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="absolute inset-0 z-10 bg-[#ddc4ee]/60 flex items-center justify-center gap-12"
+            className="hidden md:flex absolute inset-0 z-10 bg-[#ddc4ee]/60 items-center justify-center gap-12"
           >
             <motion.a
               href={siteConfig.links.instagram}

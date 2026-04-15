@@ -65,8 +65,19 @@ export default function MusicBlock({ standalone = false }: MusicBlockProps) {
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* SoundCloud hover overlay on top */}
-      <div className="absolute inset-0 z-10">
+      {/* Mobile: SoundCloud icon always visible */}
+      <a
+        href={siteConfig.links.soundcloud}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Listen to scaiblu on SoundCloud"
+        className="md:hidden absolute inset-0 z-10 bg-black/20 flex items-center justify-center"
+      >
+        <SoundCloudIcon />
+      </a>
+
+      {/* Desktop: SoundCloud hover overlay */}
+      <div className="hidden md:block absolute inset-0 z-10">
         <HoverOverlay
           href={siteConfig.links.soundcloud}
           icon={<SoundCloudIcon />}

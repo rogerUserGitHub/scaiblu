@@ -2,7 +2,7 @@ export const siteConfig = {
   name: 'scaiblu',
   tagline: 'DJ · Sound Curator',
   description: 'scaiblu — DJ and music producer blending genres into unique sonic experiences.',
-  ogImage: 'https://images.unsplash.com/photo-1571266028243-e4733b0f0bb0?w=1200&q=80',
+  ogImage: 'https://scaiblu.com/logo.png',
 
   links: {
     instagram: 'https://www.instagram.com/scaiblu/',

@@ -38,7 +38,8 @@
       "Bash(dig scaiblu.com NS +short)",
       "Bash(dig scaiblu.com A +short)",
       "Bash(dig scaiblu.com CNAME +short)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(ffmpeg -i /Users/rogerdirkx/Documents/github/scaiblu/src/assets/vid2.mp4 -vcodec libx264 -crf 28 -preset slow -vf \"scale=1920:-2\" -movflags +faststart -acodec aac -b:a 128k /Users/rogerdirkx/Documents/github/scaiblu/src/assets/vid2_compressed.mp4)"
     ]
   }
 }

@@ -28,6 +28,9 @@ export default function Footer() {
           <button onClick={reopenCookieBanner} className="text-[10px] font-bold text-[#cede2c] tracking-wider uppercase hover:opacity-70 transition-opacity duration-200">Cookies</button>
         </nav>
         <p className="text-[10px] font-bold text-[#cede2c] tracking-wider">© {year} {siteConfig.name}</p>
+        <p className="text-[10px] text-black/40 tracking-wider">
+          Designed by <a href="https://uxbloom.ch/" target="_blank" rel="noopener noreferrer" className="hover:text-black/70 transition-colors duration-200">rogerdirkx at uxbloom</a>
+        </p>
       </div>
 
       {/* Desktop: single row */}
@@ -49,6 +52,9 @@ export default function Footer() {
           <span className="text-[#cede2c] font-bold text-[10px]">·</span>
           <button onClick={reopenCookieBanner} className="text-[10px] font-bold text-[#cede2c] tracking-wider uppercase hover:opacity-70 transition-opacity duration-200">Cookies</button>
         </nav>
+        <p className="text-[10px] text-black/40 tracking-wider">
+          Designed by <a href="https://uxbloom.ch/" target="_blank" rel="noopener noreferrer" className="hover:text-black/70 transition-colors duration-200">rogerdirkx at uxbloom</a>
+        </p>
       </div>
     </footer>
   );

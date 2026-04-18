@@ -7,7 +7,7 @@ export const siteConfig = {
   links: {
     instagram: 'https://www.instagram.com/scaiblu/',
     youtube: 'https://www.youtube.com/@djscaiblu',
-    soundcloud: 'https://soundcloud.com',
+    soundcloud: 'https://soundcloud.com/scaiblu',
   },
 
   hero: {

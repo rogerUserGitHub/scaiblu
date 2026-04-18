@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import WaveSurfer from 'wavesurfer.js';
 import { motion, AnimatePresence } from 'framer-motion';
-import bgWebm from '../assets/turntable.webm';
+import bgVid from '../assets/vid2.mp4';
 import logoImg from '../assets/logo.png';
 import { trackEvent } from '../analytics';
 
 const TRACKS = [
-  { title: 'Mix 001', artist: 'Scaiblu', src: '/audio/mix001.mp3' },
+  { title: 'Mix 001', artist: 'Scaiblu', src: '/audio/mix001.mp3', soundcloud: 'https://soundcloud.com/scaiblu' },
 ];
 
 const canSkip = TRACKS.length > 1;
@@ -46,6 +46,14 @@ function PauseIcon({ size = 22 }: { size?: number }) {
   );
 }
 
+function SoundCloudLogo({ size = 20 }: { size?: number }) {
+  return (
+    <svg width={size} height={size * 0.5} viewBox="0 0 64 32" fill="currentColor" aria-hidden="true">
+      <path d="M0 20.5c0 2.5 1.9 4.5 4.3 4.5H52c2.9 0 5.3-2.3 5.3-5.3 0-2.6-1.9-4.8-4.3-5.2-.1-5.5-4.4-9.9-9.8-9.9-2.1 0-4.1.7-5.7 1.8C36.6 3.1 33 .5 28.7.5c-5.7 0-10.5 4.3-11.1 9.8-.4-.1-.9-.1-1.3-.1-4.5 0-8.1 3.5-8.1 7.8 0 .8.1 1.6.4 2.3A4.5 4.5 0 0 0 4.3 20c-.1.2-.1.3 0 .5z" />
+    </svg>
+  );
+}
+
 function formatTime(seconds: number) {
   if (!isFinite(seconds) || seconds < 0) return '0:00';
   const m = Math.floor(seconds / 60);
@@ -55,12 +63,12 @@ function formatTime(seconds: number) {
 
 function LoadingBars() {
   return (
-    <div className="flex gap-[3px] items-end h-14">
+    <div className="flex gap-[3px] items-end h-28">
       {Array.from({ length: 28 }).map((_, i) => (
         <motion.div
           key={i}
           className="w-[2px] bg-white/20 rounded-full"
-          animate={{ height: ['6px', `${10 + Math.sin(i) * 14}px`, '6px'] }}
+          animate={{ height: ['8px', `${18 + Math.sin(i) * 24}px`, '8px'] }}
           transition={{ duration: 0.9 + (i % 5) * 0.12, repeat: Infinity, ease: 'easeInOut', delay: i * 0.035 }}
         />
       ))}
@@ -98,7 +106,7 @@ export default function AudioPlayer() {
       barWidth: 2,
       barGap: 2,
       barRadius: 2,
-      height: 56,
+      height: 112,
       normalize: true,
       url: track.src,
     });
@@ -141,13 +149,12 @@ export default function AudioPlayer() {
     <section id="player" className="relative w-full h-[50vh] overflow-hidden" aria-label="Audio player">
 
       {/* ── Backgrounds ── */}
-      <div className="md:hidden absolute inset-0 bg-[#0a0a0a]" />
       <video
-        src={bgWebm} aria-hidden="true" autoPlay muted loop playsInline
-        className="hidden md:block absolute inset-0 w-full h-full object-cover"
+        src={bgVid} aria-hidden="true" autoPlay muted loop playsInline
+        className="absolute inset-0 w-full h-full object-cover"
         style={{ filter: 'grayscale(100%) brightness(0.45)' }}
       />
-      <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20" />
       <div
         className="hidden md:block absolute inset-0 pointer-events-none opacity-[0.05]"
         style={{ backgroundImage: 'repeating-linear-gradient(0deg,#fff 0px,#fff 1px,transparent 1px,transparent 4px)' }}
@@ -158,7 +165,7 @@ export default function AudioPlayer() {
            Desktop: vertically centered between label and controls       */}
       <div className="
         absolute z-10 left-5 right-5
-        top-8
+        top-1/2 -translate-y-1/2
         md:left-12 md:right-12 md:top-1/2 md:-translate-y-1/2
       ">
         {!ready && <LoadingBars />}
@@ -216,9 +223,22 @@ export default function AudioPlayer() {
             <SkipForwardIcon />
           </button>
 
-          <div className="flex flex-col gap-0.5">
-            <span className="text-white font-bold text-base leading-tight tracking-tight">{track.title}</span>
-            <span className="text-white/50 text-xs tracking-widest uppercase">{track.artist}</span>
+          <div className="flex items-center gap-3">
+            <div className="flex flex-col gap-0.5">
+              <span className="text-white font-bold text-base leading-tight tracking-tight">{track.title}</span>
+              <span className="text-white/50 text-xs tracking-widest uppercase">{track.artist}</span>
+            </div>
+            {track.soundcloud && (
+              <a
+                href={track.soundcloud}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Listen to ${track.title} on SoundCloud`}
+                className="text-white/40 hover:text-[#ff5500] transition-colors duration-200 flex-shrink-0"
+              >
+                <SoundCloudLogo size={28} />
+              </a>
+            )}
           </div>
 
           <div className="flex items-center gap-2 ml-2">
@@ -257,7 +277,20 @@ export default function AudioPlayer() {
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-white font-semibold text-sm leading-snug tracking-tight truncate">{track.title}</p>
-              <p className="text-white/50 text-xs tracking-widest uppercase truncate">{track.artist}</p>
+              <div className="flex items-center gap-2 mt-0.5">
+                <p className="text-white/50 text-xs tracking-widest uppercase truncate">{track.artist}</p>
+                {track.soundcloud && (
+                  <a
+                    href={track.soundcloud}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Listen to ${track.title} on SoundCloud`}
+                    className="text-white/40 hover:text-[#ff5500] transition-colors duration-200 flex-shrink-0"
+                  >
+                    <SoundCloudLogo size={22} />
+                  </a>
+                )}
+              </div>
             </div>
             {/* Controls */}
             <div className="flex items-center gap-3 flex-shrink-0">

@@ -43,7 +43,9 @@
       "Bash(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero4.png)",
       "Bash(sips -g pixelWidth -g pixelHeight /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero4.png)",
       "Bash(cwebp -q 85 /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero4.png -o /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero4.webp)",
-      "Bash(ls -lh /Users/rogerdirkx/Documents/github/scaiblu/src/assets/*.mp3)"
+      "Bash(ls -lh /Users/rogerdirkx/Documents/github/scaiblu/src/assets/*.mp3)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero5.png)",
+      "Bash(cwebp -q 85 /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero5.png -o /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero5.webp)"
     ]
   }
 }

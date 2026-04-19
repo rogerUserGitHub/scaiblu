@@ -270,7 +270,7 @@ export default function AudioPlayer() {
             </div>
             <div className="flex-1 min-w-0 overflow-hidden">
               <div className="overflow-hidden">
-                <p className="text-white font-semibold text-sm leading-snug tracking-tight whitespace-nowrap inline-block animate-marquee">{track.title}</p>
+                <p key={trackIndex} className="text-white font-semibold text-sm leading-snug tracking-tight whitespace-nowrap inline-block animate-marquee">{track.title}</p>
               </div>
               <p className="text-white/50 text-xs tracking-widest uppercase truncate mt-0.5">{track.artist}</p>
             </div>

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { siteConfig } from '../config/siteConfig';
 import GradientText from './GradientText';
 import { VideoText } from './VideoText';
-import heroBg from '../assets/hero4.webp';
+import heroBg from '../assets/hero5.webp';
 import turntableWebm from '../assets/turntable.webm';
 import stereoWebm from '../assets/stereo.webm';
 import cloudsWebm from '../assets/clouds.webm';
@@ -34,7 +34,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full h-dvh overflow-hidden"
+      className="relative w-full h-dvh overflow-hidden bg-black"
       aria-label="Hero section"
     >
       <img
@@ -42,7 +42,7 @@ export default function Hero() {
         alt="scaiblu hero background"
         fetchPriority="high"
         decoding="async"
-        className="absolute inset-0 w-full h-full object-cover object-[60%_center] md:object-[30%_center]"
+        className="absolute inset-0 w-full h-full object-cover object-[60%_75%] md:object-[30%_75%]"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/10" />
 

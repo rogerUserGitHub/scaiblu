@@ -6,7 +6,7 @@ import logoImg from '../assets/logo.png';
 import { trackEvent } from '../analytics';
 
 const TRACKS = [
-  { title: 'Pan Jabi by Wade v Dale Loca by Chemical Surf/Anna Marchesini', artist: 'Scaiblu', src: '/audio/audio1.mp3', soundcloud: 'https://soundcloud.com/scaiblu' },
+  { title: 'No sleep (6AM) feat. MERYLL by EDC Las Vegas v Pan Jabi by Wade', artist: 'Scaiblu', src: '/audio/audio1.mp3', soundcloud: 'https://soundcloud.com/scaiblu' },
   { title: 'Milkshake by Jamy Nox v Mercedes Sosa by Conrado/MichaelBM/Cach House', artist: 'Scaiblu', src: '/audio/audio2.mp3', soundcloud: 'https://soundcloud.com/scaiblu' },
   { title: 'Viento by Funk Tribut v Born Slippy by Lenoize', artist: 'Scaiblu', src: '/audio/audio3.mp3', soundcloud: 'https://soundcloud.com/scaiblu' },
 ];

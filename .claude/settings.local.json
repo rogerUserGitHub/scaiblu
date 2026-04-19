@@ -45,7 +45,17 @@
       "Bash(cwebp -q 85 /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero4.png -o /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero4.webp)",
       "Bash(ls -lh /Users/rogerdirkx/Documents/github/scaiblu/src/assets/*.mp3)",
       "Bash(sips -g pixelWidth -g pixelHeight /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero5.png)",
-      "Bash(cwebp -q 85 /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero5.png -o /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero5.webp)"
+      "Bash(cwebp -q 85 /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero5.png -o /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero5.webp)",
+      "Bash(cwebp -q 80 -m 6 /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero5.png -o /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero5.webp)",
+      "Bash(cwebp -q 80 /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero5.png -o /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero5_opt.webp)",
+      "Bash(cwebp -version)",
+      "Bash(cwebp -q 80 \"/Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero5.png\" -o \"/Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero5_opt.webp\")",
+      "Bash(ls *)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero5.jpg)",
+      "Bash(cwebp -q 82 /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero5.jpg -o /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero5.webp)",
+      "Bash(ffmpeg -y -i /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero5.jpg -vf scale=1920:-2 /tmp/hero5_1920.jpg)",
+      "Bash(cwebp -q 85 /tmp/hero5_1920.jpg -o /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero5.webp)",
+      "Bash(cwebp -q 78 /tmp/hero5_1920.jpg -o /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero5.webp)"
     ]
   }
 }

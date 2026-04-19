@@ -268,8 +268,10 @@ export default function AudioPlayer() {
             <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 bg-black/40 flex items-center justify-center">
               <img src={logoImg} alt="" aria-hidden="true" className="w-8 h-auto opacity-80" />
             </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-white font-semibold text-sm leading-snug tracking-tight truncate">{track.title}</p>
+            <div className="flex-1 min-w-0 overflow-hidden">
+              <div className="overflow-hidden">
+                <p className="text-white font-semibold text-sm leading-snug tracking-tight whitespace-nowrap inline-block animate-marquee">{track.title}</p>
+              </div>
               <p className="text-white/50 text-xs tracking-widest uppercase truncate mt-0.5">{track.artist}</p>
             </div>
             {/* Controls */}

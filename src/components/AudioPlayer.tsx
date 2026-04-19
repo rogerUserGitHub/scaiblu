@@ -6,7 +6,9 @@ import logoImg from '../assets/logo.png';
 import { trackEvent } from '../analytics';
 
 const TRACKS = [
-  { title: 'Mix 001', artist: 'Scaiblu', src: '/audio/mix001.mp3', soundcloud: 'https://soundcloud.com/scaiblu' },
+  { title: 'Pan Jabi by Wade v Dale Loca by Chemical Surf/Anna Marchesini', artist: 'Scaiblu', src: '/audio/audio1.mp3', soundcloud: 'https://soundcloud.com/scaiblu' },
+  { title: 'Milkshake by Jamy Nox v Mercedes Sosa by Conrado/MichaelBM/Cach House', artist: 'Scaiblu', src: '/audio/audio2.mp3', soundcloud: 'https://soundcloud.com/scaiblu' },
+  { title: 'Viento by Funk Tribut v Born Slippy by Lenoize', artist: 'Scaiblu', src: '/audio/audio3.mp3', soundcloud: 'https://soundcloud.com/scaiblu' },
 ];
 
 const canSkip = TRACKS.length > 1;
@@ -46,13 +48,6 @@ function PauseIcon({ size = 22 }: { size?: number }) {
   );
 }
 
-function SoundCloudLogo({ size = 20 }: { size?: number }) {
-  return (
-    <svg width={size} height={size * 0.5} viewBox="0 0 64 32" fill="currentColor" aria-hidden="true">
-      <path d="M0 20.5c0 2.5 1.9 4.5 4.3 4.5H52c2.9 0 5.3-2.3 5.3-5.3 0-2.6-1.9-4.8-4.3-5.2-.1-5.5-4.4-9.9-9.8-9.9-2.1 0-4.1.7-5.7 1.8C36.6 3.1 33 .5 28.7.5c-5.7 0-10.5 4.3-11.1 9.8-.4-.1-.9-.1-1.3-.1-4.5 0-8.1 3.5-8.1 7.8 0 .8.1 1.6.4 2.3A4.5 4.5 0 0 0 4.3 20c-.1.2-.1.3 0 .5z" />
-    </svg>
-  );
-}
 
 function formatTime(seconds: number) {
   if (!isFinite(seconds) || seconds < 0) return '0:00';
@@ -86,6 +81,7 @@ export default function AudioPlayer() {
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(0.8);
   const milestones = useRef(new Set<number>());
+  const autoPlayOnReady = useRef(false);
 
   const track = TRACKS[trackIndex];
 
@@ -111,7 +107,15 @@ export default function AudioPlayer() {
       url: track.src,
     });
 
-    ws.on('ready', (dur) => { setDuration(dur); setReady(true); ws.setVolume(volume); });
+    ws.on('ready', (dur) => {
+      setDuration(dur);
+      setReady(true);
+      ws.setVolume(volume);
+      if (autoPlayOnReady.current) {
+        autoPlayOnReady.current = false;
+        ws.play();
+      }
+    });
     ws.on('timeupdate', (t) => {
       setCurrentTime(t);
       // Track 25 / 50 / 75 / 100% milestones
@@ -135,8 +139,8 @@ export default function AudioPlayer() {
   }, [trackIndex]);
 
   const togglePlay = () => wsRef.current?.playPause();
-  const skipBack = () => setTrackIndex(i => (i - 1 + TRACKS.length) % TRACKS.length);
-  const skipForward = () => setTrackIndex(i => (i + 1) % TRACKS.length);
+  const skipBack = () => { autoPlayOnReady.current = playing; setTrackIndex(i => (i - 1 + TRACKS.length) % TRACKS.length); };
+  const skipForward = () => { autoPlayOnReady.current = playing; setTrackIndex(i => (i + 1) % TRACKS.length); };
   const handleVolume = (e: React.ChangeEvent<HTMLInputElement>) => {
     const v = parseFloat(e.target.value);
     setVolume(v);
@@ -164,8 +168,8 @@ export default function AudioPlayer() {
            Mobile: sits in the upper portion of the section
            Desktop: vertically centered between label and controls       */}
       <div className="
-        absolute z-10 left-5 right-5
-        top-1/2 -translate-y-1/2
+        hidden md:block
+        absolute z-10
         md:left-12 md:right-12 md:top-1/2 md:-translate-y-1/2
       ">
         {!ready && <LoadingBars />}
@@ -228,17 +232,6 @@ export default function AudioPlayer() {
               <span className="text-white font-bold text-base leading-tight tracking-tight">{track.title}</span>
               <span className="text-white/50 text-xs tracking-widest uppercase">{track.artist}</span>
             </div>
-            {track.soundcloud && (
-              <a
-                href={track.soundcloud}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Listen to ${track.title} on SoundCloud`}
-                className="text-white/40 hover:text-[#ff5500] transition-colors duration-200 flex-shrink-0"
-              >
-                <SoundCloudLogo size={28} />
-              </a>
-            )}
           </div>
 
           <div className="flex items-center gap-2 ml-2">
@@ -268,7 +261,7 @@ export default function AudioPlayer() {
           MOBILE layout — Spotify-style card
       ══════════════════════════════════════ */}
       <div className="flex md:hidden absolute inset-0 z-20 flex-col justify-end px-5 pb-8">
-        <div className="bg-white/8 backdrop-blur-md border border-white/10 rounded-2xl px-5 py-5 flex flex-col gap-4">
+        <div className="backdrop-blur-sm border border-white/5 rounded-2xl px-5 py-5 flex flex-col gap-4">
 
           {/* Track row */}
           <div className="flex items-center gap-3">
@@ -277,20 +270,7 @@ export default function AudioPlayer() {
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-white font-semibold text-sm leading-snug tracking-tight truncate">{track.title}</p>
-              <div className="flex items-center gap-2 mt-0.5">
-                <p className="text-white/50 text-xs tracking-widest uppercase truncate">{track.artist}</p>
-                {track.soundcloud && (
-                  <a
-                    href={track.soundcloud}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Listen to ${track.title} on SoundCloud`}
-                    className="text-white/40 hover:text-[#ff5500] transition-colors duration-200 flex-shrink-0"
-                  >
-                    <SoundCloudLogo size={22} />
-                  </a>
-                )}
-              </div>
+              <p className="text-white/50 text-xs tracking-widest uppercase truncate mt-0.5">{track.artist}</p>
             </div>
             {/* Controls */}
             <div className="flex items-center gap-3 flex-shrink-0">

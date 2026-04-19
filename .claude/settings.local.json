@@ -39,7 +39,11 @@
       "Bash(dig scaiblu.com A +short)",
       "Bash(dig scaiblu.com CNAME +short)",
       "Bash(curl:*)",
-      "Bash(ffmpeg -i /Users/rogerdirkx/Documents/github/scaiblu/src/assets/vid2.mp4 -vcodec libx264 -crf 28 -preset slow -vf \"scale=1920:-2\" -movflags +faststart -acodec aac -b:a 128k /Users/rogerdirkx/Documents/github/scaiblu/src/assets/vid2_compressed.mp4)"
+      "Bash(ffmpeg -i /Users/rogerdirkx/Documents/github/scaiblu/src/assets/vid2.mp4 -vcodec libx264 -crf 28 -preset slow -vf \"scale=1920:-2\" -movflags +faststart -acodec aac -b:a 128k /Users/rogerdirkx/Documents/github/scaiblu/src/assets/vid2_compressed.mp4)",
+      "Bash(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero4.png)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero4.png)",
+      "Bash(cwebp -q 85 /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero4.png -o /Users/rogerdirkx/Documents/github/scaiblu/src/assets/hero4.webp)",
+      "Bash(ls -lh /Users/rogerdirkx/Documents/github/scaiblu/src/assets/*.mp3)"
     ]
   }
 }

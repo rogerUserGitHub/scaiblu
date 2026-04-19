@@ -1,4 +1,4 @@
-// import { Suspense, lazy } from 'react';
+import { Suspense, lazy } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import SocialBlock from '../components/SocialBlock';
@@ -6,7 +6,7 @@ import MusicBlock from '../components/MusicBlock';
 import AboutBlock from '../components/AboutBlock';
 import Footer from '../components/Footer';
 
-// const AudioPlayer = lazy(() => import('../components/AudioPlayer'));
+const AudioPlayer = lazy(() => import('../components/AudioPlayer'));
 
 export default function Home() {
   return (
@@ -24,9 +24,9 @@ export default function Home() {
         </div>
       </main>
 
-      {/* <Suspense fallback={<div className="w-full h-[50vh] bg-[#0a0a0a]" />}>
+      <Suspense fallback={<div className="w-full h-[50vh] bg-[#0a0a0a]" />}>
         <AudioPlayer />
-      </Suspense> */}
+      </Suspense>
 
       <Footer />
     </>
